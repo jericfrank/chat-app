@@ -1,0 +1,31 @@
+<template name="appChat"><!-- variable name para sa controller ug sa js. -->
+
+	<div class = "container">
+		
+	<form class="form">
+	<div class = "form-group">
+		<label>Username:</label>
+		<input type="text" class="txtName" placeholder = "Username"/>
+	</div>	
+		<div class = "form-group">
+			<label>Message:</label>
+			<textarea class="txtText" maxlength="250" placeholder="Write a message.. ."></textarea>
+	</div>
+	</form>
+	</div>
+
+	<div class="container">
+	{{#each Messages}}<!-- loop ang sulod sa message helpers -->
+
+		<div class="alert alert-info">
+			<h3><strong>Name:</strong> {{name}}</h3>
+				<p><strong>Message:</strong> {{text}}<br>-{{createdAt}}</p>
+				<button class="btnDelete btn-danger">x</button>
+		</div>
+	
+		 	 <br>
+	{{/each}}
+</div>	 	
+
+
+</template>
