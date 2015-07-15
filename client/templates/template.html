@@ -1,0 +1,87 @@
+<template name="profiles">
+
+ <table class="table border bordered hovered cell-hovered">
+                <thead>
+                <tr>
+                	 <th >Date Added - Date Updated</th>
+                    <th >Full Name</th>
+                    <th >Age</th>
+                    <th >Address</th>
+                    <th >Action</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                {{#each Profile}}
+                   
+                <tr>
+                    <td>{{prettifyDate createdAt}} - {{prettifyDate updatedAt}}</td>
+                    <td>{{fullname}}</td>
+                    <td>{{age}}</td>
+                     <td>{{address}}</td>
+                     <td><a href="#"><strong class="btnDelete tag alert">Delete</strong></a>  <a href="#" onclick="showDialog('{{_id}}')" ><strong class="btnUpdate tag info">Update</strong></a></td>
+
+                      <div data-width="500" data-role="dialog" id="{{_id}}" class="padding20" data-close-button="true" data-overlay="true" data-overlay-color="op-dark">
+            <h1>Update Profiles</h1>
+            <label>Full Name</label>
+                        <div class="input-control text full-size">
+                            <input type="hidden" class="{{_id}}" >
+                            <input value="{{fullname}}" type="text" class="uptxtName-{{_id}}" placeholder="({{fullname}}) Full Name here...">
+                        </div>
+
+                        <label>Age</label>
+                        <div class="input-control text full-size">
+                            <input value="{{age}}" type="text" class="uptxtAge-{{_id}}" placeholder="({{age}}) Age here...">
+                        </div>
+
+                        <label>Address</label>
+                        <div class="input-control text full-size">
+                            <input value="{{address}}" type="text" class="uptxtAddress-{{_id}}" placeholder="({{address}}) Address here...">
+                        </div>
+                        <button class="command-button btn-update primary full-size">
+    <span class="icon mif-share"></span>
+    Click to update profile
+    <small>Use this to update the profile</small>
+</button>
+        </div>
+
+                </tr>
+               {{/each}}
+                <tr>
+                    <td><button data-close-button="true" class="button success fg-black" onclick="showDialog('dialog9')"><img src='/img/icon-plus.png'/> add new</button>
+                        <div class="input-control text">
+    <input type="text" class="search" placeholder="search someones name.. .">
+</div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+</template>
+
+<template name="addprofiles">
+
+   <div data-width="500" data-role="dialog" id="dialog9" class="padding20" data-close-button="true" data-overlay="true" data-overlay-color="op-dark">
+            <h1>Add Profiles</h1>
+            <label>Full Name</label>
+                        <div class="input-control text full-size">
+                            <input type="text" class="txtName" placeholder="Full Name here...">
+                        </div>
+
+                        <label>Age</label>
+                        <div class="input-control text full-size">
+                            <input type="text" class="txtAge" placeholder="Age here...">
+                        </div>
+
+                        <label>Address</label>
+                        <div class="input-control text full-size">
+                            <input type="text" class="txtAddress" placeholder="Address here...">
+                        </div>
+                        <button class="command-button btn-submit success full-size">
+    <span class="icon mif-share"></span>
+    Click to add profile
+    <small>Use this to add in the tableset</small>
+</button>
+        </div>
+
+         
+</template>

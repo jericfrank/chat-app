@@ -1,24 +1,28 @@
 
 <head>
 
-<title>Chat App</title>
-
+<title>Crud Application</title>
+ <link rel="shortcut icon" href="/img/icon-plus.png">
+    <script>
+        function showDialog(id){
+            var dialog = $("#"+id).data('dialog');
+  
+            if (!dialog.element.data('opened')) {
+                dialog.open();
+            } else {
+                dialog.close();
+            }
+        } 
+    </script>
 </head>
 
 <body>
+<div class="container">
 
+<h3>Simple Crud App<small> a personalize crud application can add, update, delete, and search profiles.</small></h3>
 
-
-
-<div class="page-header">
-<center>
-	<h1>
- 		<b>Chat App</b>
-	</h1>
-</center>
+{{> addprofiles}}
+{{> profiles}} <!-- bali code sa include -->
+<p class="text-muted fg-grayLight">&copy; Simple Crud App Develop by Guns Galacio</p>
 </div>
-
-{{> appChat}} <!-- bali code sa include -->
-
-
 </body>
